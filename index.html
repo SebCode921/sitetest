@@ -49,25 +49,39 @@
     }
   </style>
 </head>
-<body>
-  <header>My Store</header>
+<body class="text-gray-900">
+  <!-- HEADER -->
+  <header class="w-full fixed top-0 left-0 bg-white/70 backdrop-blur-xl border-b border-gray-200/50 z-50">
+    <div class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-tight">Sebs Rigs</h1>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="#store" class="hover:opacity-60 transition">Store</a>
+        <a href="#specs" class="hover:opacity-60 transition">Specs</a>
+        <a href="#about" class="hover:opacity-60 transition">About</a>
+      </nav>
+    </div>
+  </header>
 
-  <section class="product">
-    <img src="images/product.jpg" alt="Product Image" />
+  <!-- HERO SECTION -->
+  <section class="w-full h-screen flex flex-col justify-center items-center text-center px-6 bg-white pt-32" id="hero">
+    <h2 class="text-6xl font-bold mb-6 tracking-tight">Performance. Precision. Power.</h2>
+    <p class="text-xl text-gray-600 max-w-2xl mb-10 font-medium">Sebs Rigs delivers high‑end custom PCs crafted for speed, stability, and style.</p>
+    <a href="#store" class="px-10 py-4 bg-black text-white text-lg font-bold rounded-full hover:opacity-80 transition">Shop Now</a>
+  </section>
 
-    <div class="product-info">
-      <h2>Product Name</h2>
-      <p>
-        A clean, simple description for your product. Write whatever details you
-        want your customers to know.
-      </p>
+  <!-- STORE SECTION -->
+  <section class="w-full py-32 bg-gray-100" id="store">
+    <div class="container mx-auto max-w-4xl px-6 text-center">
+      <h3 class="text-4xl font-bold mb-4">Featured Build</h3>
+      <p class="text-lg text-gray-600 max-w-xl mx-auto mb-14 font-medium">Your go‑to rig for gaming, editing, and pure raw power.</p>
 
-      <!-- Shopify Buy Button Code Goes Here -->
+      <img src="your-product-image.jpg" alt="Product Image" class="w-full rounded-3xl shadow-xl mb-14" />
+
       <div class="buy-button">
-  <!-- 📌 PASTE YOUR ENTIRE SHOPIFY BUY BUTTON SCRIPT BELOW THIS LINE →
-       Include BOTH the <div id='product-component...'></div> AND the <script> tag.
-  -->
-  <!-- BEGIN SHOPIFY BUY BUTTON CODE -->
+        <!-- 📌 PASTE YOUR ENTIRE SHOPIFY BUY BUTTON SCRIPT BELOW THIS LINE →
+             Include BOTH the <div id='product-component...'></div> AND the <script> tag.
+        -->
+        <!-- BEGIN SHOPIFY BUY BUTTON CODE -->
 <div id='product-component-1764018928167'></div>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -158,9 +172,46 @@
 })();
 /*]]>*/
 </script>
-  <!-- END SHOPIFY BUY BUTTON CODE -->
-</div>
+        <!-- END SHOPIFY BUY BUTTON CODE -->
+      </div>
     </div>
   </section>
+
+  <!-- SPECS SECTION -->
+  <section class="w-full py-32 bg-white" id="specs">
+    <div class="container mx-auto max-w-5xl px-6">
+      <h3 class="text-4xl font-bold text-center mb-16">Built Different</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div>
+          <h4 class="text-2xl font-bold mb-3">High Performance</h4>
+          <p class="text-gray-600 font-medium">Optimized for FPS, multitasking, and zero slowdown.</p>
+        </div>
+        <div>
+          <h4 class="text-2xl font-bold mb-3">Premium Parts</h4>
+          <p class="text-gray-600 font-medium">Only name‑brand components for long‑lasting reliability.</p>
+        </div>
+        <div>
+          <h4 class="text-2xl font-bold mb-3">Clean Aesthetics</h4>
+          <p class="text-gray-600 font-medium">Minimal, modern, and professionally assembled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="w-full py-32 bg-gray-100" id="about">
+    <div class="container mx-auto max-w-4xl px-6 text-center">
+      <h3 class="text-4xl font-bold mb-6">About Sebs Rigs</h3>
+      <p class="text-lg text-gray-700 font-medium max-w-2xl mx-auto">
+        Every build is crafted with passion and experience. Whether you're gaming, editing, or creating, Sebs Rigs delivers machines that keep up with your ambition.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="w-full py-10 text-center text-sm text-gray-500 border-t border-gray-300 bg-white">
+    © 2025 Sebs Rigs. All rights reserved.
+  </footer>
 </body>
 </html>
