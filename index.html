@@ -3,215 +3,261 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Storefront</title>
+  <title>Sebs Rigs</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      background: #f4f4f4;
       color: #111;
     }
     header {
-      padding: 20px;
-      text-align: center;
-      font-size: 24px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      z-index: 100;
     }
-    .product {
-      max-width: 800px;
-      margin: 40px auto;
+    header .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
-    .product img {
-      width: 300px;
-      border-radius: 10px;
-      object-fit: cover;
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
     }
-    .product-info {
-      max-width: 350px;
+    header nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
     }
-    .product-info h2 {
-      margin: 0 0 10px 0;
-      font-size: 28px;
+    header nav a:hover {
+      color: #000;
     }
-    .product-info p {
-      line-height: 1.6;
+
+    section {
+      padding: 120px 20px 80px; /* top padding to avoid fixed header */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      background: white;
+    }
+    .hero h2 {
+      font-size: 48px;
+      font-weight: bold;
       margin-bottom: 20px;
     }
-    .buy-button {
-      margin-top: 10px;
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .hero img {
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .hero .cta {
+      background: #111;
+      color: white;
+      padding: 15px 30px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .hero .cta:hover {
+      opacity: 0.85;
+    }
+
+    .store {
+      text-align: center;
+      background: #fafafa;
+    }
+    .store h3 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .store p {
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    .store img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      background: white;
+      text-align: center;
+    }
+    .gallery h3 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .gallery .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .gallery .grid img {
+      width: calc(33% - 20px);
+      min-width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .specs {
+      background: #fafafa;
+      text-align: center;
+    }
+    .specs h3 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .specs .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .specs .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      width: 280px;
+    }
+    .specs .card h4 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .specs .card p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .about {
+      background: white;
+      text-align: center;
+    }
+    .about h3 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .about p {
+      color: #555;
+      font-size: 16px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .about img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
     }
   </style>
 </head>
-<body class="text-gray-900">
-  <!-- HEADER -->
-  <header class="w-full fixed top-0 left-0 bg-white/70 backdrop-blur-xl border-b border-gray-200/50 z-50">
-    <div class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold tracking-tight">Sebs Rigs</h1>
-      <nav class="space-x-6 text-sm font-semibold">
-        <a href="#store" class="hover:opacity-60 transition">Store</a>
-        <a href="#specs" class="hover:opacity-60 transition">Specs</a>
-        <a href="#about" class="hover:opacity-60 transition">About</a>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <h1>Sebs Rigs</h1>
+      <nav>
+        <a href="#store">Store</a>
+        <a href="#specs">Specs</a>
+        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="w-full h-screen flex flex-col justify-center items-center text-center px-6 bg-white pt-32" id="hero">
-    <h2 class="text-6xl font-bold mb-6 tracking-tight">Performance. Precision. Power.</h2>
-    <p class="text-xl text-gray-600 max-w-2xl mb-10 font-medium">Sebs Rigs delivers high‑end custom PCs crafted for speed, stability, and style.</p>
-    <a href="#store" class="px-10 py-4 bg-black text-white text-lg font-bold rounded-full hover:opacity-80 transition">Shop Now</a>
+  <section class="hero" id="hero">
+    <h2>Built for Power & Precision</h2>
+    <p>Our custom rigs combine performance with refined design — built for creators, gamers, and professionals.</p>
+    <img src="placeholder-hero.jpg" alt="Hero Build">
+    <a href="#store" class="cta">Shop Now</a>
   </section>
 
-  <!-- STORE SECTION -->
-  <section class="w-full py-32 bg-gray-100" id="store">
-    <div class="container mx-auto max-w-4xl px-6 text-center">
-      <h3 class="text-4xl font-bold mb-4">Featured Build</h3>
-      <p class="text-lg text-gray-600 max-w-xl mx-auto mb-14 font-medium">Your go‑to rig for gaming, editing, and pure raw power.</p>
+  <section class="store" id="store">
+    <h3>Featured Build</h3>
+    <p>Your go-to rig for top-tier performance and sleek aesthetics.</p>
+    <img src="placeholder-product.jpg" alt="Featured Rig">
+    <div class="buy-button">
+      <!-- 📌 PASTE YOUR ENTIRE SHOPIFY BUY BUTTON SCRIPT BELOW THIS LINE → -->
+      <!-- BEGIN SHOPIFY BUY BUTTON CODE -->
 
-      <img src="your-product-image.jpg" alt="Product Image" class="w-full rounded-3xl shadow-xl mb-14" />
+      <!-- END SHOPIFY BUY BUTTON CODE -->
+    </div>
+  </section>
 
-      <div class="buy-button">
-        <!-- 📌 PASTE YOUR ENTIRE SHOPIFY BUY BUTTON SCRIPT BELOW THIS LINE →
-             Include BOTH the <div id='product-component...'></div> AND the <script> tag.
-        -->
-        <!-- BEGIN SHOPIFY BUY BUTTON CODE -->
-<div id='product-component-1764018928167'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'd0yxvg-kg.myshopify.com',
-      storefrontAccessToken: '3325c47c348695e53ec0b382fdab4a83',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '9235357302935',
-        node: document.getElementById('product-component-1764018928167'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    }
-  },
-  "toggle": {}
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-        <!-- END SHOPIFY BUY BUTTON CODE -->
+  <section class="gallery" id="gallery">
+    <h3>Gallery</h3>
+    <div class="grid">
+      <img src="placeholder-gallery1.jpg" alt="Gallery Image 1">
+      <img src="placeholder-gallery2.jpg" alt="Gallery Image 2">
+      <img src="placeholder-gallery3.jpg" alt="Gallery Image 3">
+    </div>
+  </section>
+
+  <section class="specs" id="specs">
+    <h3>Why Our Rigs?</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Optimized Performance</h4>
+        <p>High-performance parts for gaming, multitasking, and creative work.</p>
+      </div>
+      <div class="card">
+        <h4>Premium Components</h4>
+        <p>Top-quality parts that are both reliable and efficient.</p>
+      </div>
+      <div class="card">
+        <h4>Refined Design</h4>
+        <p>Sleek, minimal builds that look clean on any setup.</p>
       </div>
     </div>
   </section>
 
-  <!-- SPECS SECTION -->
-  <section class="w-full py-32 bg-white" id="specs">
-    <div class="container mx-auto max-w-5xl px-6">
-      <h3 class="text-4xl font-bold text-center mb-16">Built Different</h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-        <div>
-          <h4 class="text-2xl font-bold mb-3">High Performance</h4>
-          <p class="text-gray-600 font-medium">Optimized for FPS, multitasking, and zero slowdown.</p>
-        </div>
-        <div>
-          <h4 class="text-2xl font-bold mb-3">Premium Parts</h4>
-          <p class="text-gray-600 font-medium">Only name‑brand components for long‑lasting reliability.</p>
-        </div>
-        <div>
-          <h4 class="text-2xl font-bold mb-3">Clean Aesthetics</h4>
-          <p class="text-gray-600 font-medium">Minimal, modern, and professionally assembled.</p>
-        </div>
-      </div>
-    </div>
+  <section class="about" id="about">
+    <h3>About Sebs Rigs</h3>
+    <p>At Sebs Rigs, we design and build custom PCs with a premium focus on performance and aesthetics. Every system is built with precision and passion.</p>
+    <img src="placeholder-about.jpg" alt="About Image">
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section class="w-full py-32 bg-gray-100" id="about">
-    <div class="container mx-auto max-w-4xl px-6 text-center">
-      <h3 class="text-4xl font-bold mb-6">About Sebs Rigs</h3>
-      <p class="text-lg text-gray-700 font-medium max-w-2xl mx-auto">
-        Every build is crafted with passion and experience. Whether you're gaming, editing, or creating, Sebs Rigs delivers machines that keep up with your ambition.
-      </p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="w-full py-10 text-center text-sm text-gray-500 border-t border-gray-300 bg-white">
-    © 2025 Sebs Rigs. All rights reserved.
+  <footer>
+    © 2025 Sebs Rigs. Crafted with care.
   </footer>
+
 </body>
 </html>
