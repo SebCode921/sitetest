@@ -3,194 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebs Rigs</title>
+    <title>Custom PC Builds</title>
 
     <style>
-        /* GLOBAL RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #111;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* HEADER */
-        header {
-            width: 100%;
-            padding: 20px 40px;
+        /* ---- Fullscreen video ---- */
+        #bg-video {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 50;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
-        }
-
-        header h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        /* HERO SECTION WITH VIDEO */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        /* Background video covers entire screen */
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: translate(-50%, -50%);
             z-index: -1;
-            filter: brightness(0.45);
         }
 
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.6rem;
-            opacity: 0.9;
-        }
-
-        /* SECTION TITLES */
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 80px 0 40px;
-        }
-
-        /* PRODUCT SECTION */
-        .product-section {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .product-wrapper {
+        /* ---- Content over video ---- */
+        .hero-content {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            margin-top: 30px;
-        }
-
-        /* GALLERY */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px 40px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        /* ABOUT SECTION */
-        .about {
-            padding: 60px 40px;
+            align-items: center;
             text-align: center;
-            max-width: 900px;
-            margin: auto;
-            font-size: 1.4rem;
-            opacity: 0.85;
+
+            color: white;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            opacity: 0.7;
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background: #ff0055;
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h2>SEBS RIGS</h2>
-    </header>
+    <!-- ********** Background Video ********** -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="assets/videos/hero.mp4" type="video/mp4" />
+        Your browser does not support background video.
+    </video>
 
-    <!-- HERO WITH BACKGROUND VIDEO -->
-    <section class="hero">
-
-        <!-- ▼▼▼ PUT YOUR VIDEO FILE IN /assets/videos/hero.mp4 ▼▼▼ -->
-        <video autoplay muted loop playsinline>
-            <source src="assets/videos/hero.mp4" type="video/mp4">
-        </video>
-        <!-- ▲▲▲ PUT YOUR VIDEO FILE HERE ▲▲▲ -->
-
-        <div>
-            <h1>SEBS RIGS</h1>
-            <p>Premium Custom PCs — Built With Passion</p>
-        </div>
-    </section>
-
-    <!-- PRODUCT SECTION -->
-    <h2 class="section-title">Featured Build</h2>
-    <section class="product-section">
-        <p>Clean. Fast. Reliable. Built for gamers & creators.</p>
-
-        <div class="product-wrapper">
-            <!-- ▼▼▼ PASTE YOUR SHOPIFY BUY BUTTON SCRIPT HERE ▼▼▼ -->
-            <div id="product-component-123"></div>
-
-            <!-- your full script goes here -->
-            <!-- (do not remove or move the div above) -->
-            <!-- (all Shopify code must stay inside this section) -->
-
-            <!-- Example: 
-            <script> ...your Shopify script... </script>
-            -->
-            <!-- ▲▲▲ END PASTE AREA ▲▲▲ -->
-        </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <h2 class="section-title">Gallery</h2>
-    <section class="gallery">
-        <img src="https://placehold.co/600x400" alt="placeholder">
-        <img src="https://placehold.co/600x400" alt="placeholder">
-        <img src="https://placehold.co/600x400" alt="placeholder">
-        <img src="https://placehold.co/600x400" alt="placeholder">
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <h2 class="section-title">About Sebs Rigs</h2>
-    <section class="about">
-        I build high-performance PCs tailored to gamers, creators, and anyone who wants speed and reliability.  
-        Every build is assembled with care and attention to detail — cable management, thermals, and aesthetic
-        all handled with passion.
-    </section>
-
-    <footer>
-        © 2025 Sebs Rigs — Custom PC Builds
-    </footer>
+    <!-- ********** Landing Page Content ********** -->
+    <div class="hero-content">
+        <h1>Next-Level Custom PCs</h1>
+        <p>Fast. Reliable. Built exactly for your needs.</p>
+        <a class="btn" href="#contact">Get a Quote</a>
+    </div>
 
 </body>
 </html>
