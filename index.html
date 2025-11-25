@@ -53,9 +53,18 @@
 
     <!-- ********** Background Video ********** -->
     <video id="bg-video" autoplay muted loop playsinline>
-        <source src="assets/videos/hero.mp4" type="video/mp4" />
-        Your browser does not support background video.
-    </video>
+  <source src="assets/videos/hero.mp4" type="video/mp4">
+  Your browser does not support this video.
+</video>
+
+<script>
+  const vid = document.getElementById('bg-video');
+  vid.play().catch((err) => {
+    console.log('Autoplay prevented — trying again', err);
+    setTimeout(() => vid.play(), 1000);
+  });
+</script>
+
 
     <!-- ********** Landing Page Content ********** -->
     <div class="hero-content">
